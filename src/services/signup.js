@@ -10,8 +10,8 @@ async function createUser(userData) {
 
     const savedUser = await createdUser.save();
     return savedUser;
-}
+};
 
 module.exports = {
     createUser,
-}
+};
