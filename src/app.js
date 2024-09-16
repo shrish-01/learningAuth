@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const signupRoute = require("./routes/signup");
+const createAdminAccount = require("./scripts/admin");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 
@@ -9,6 +10,8 @@ const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(cors());
+
+createAdminAccount();
 
 app.use("/user", signupRoute);
 
