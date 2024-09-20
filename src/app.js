@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const signupRoute = require("./routes/signup");
+const loginRoute = require("./routes/login");
 const createAdminAccount = require("./scripts/admin");
 const bodyParser = require("body-parser");
 const cors = require("cors");
@@ -14,6 +15,7 @@ app.use(cors());
 createAdminAccount();
 
 app.use("/user", signupRoute);
+app.use("/auth", loginRoute);
 
 app.get('/home', (req, res) => {
     res.json({
