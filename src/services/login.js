@@ -8,8 +8,9 @@ async function login(email, password) {
         if(!existingUser) {
             throw new Error("User not found");
         }
-
-        const isPasswordValid = await bcrypt.compare(password, existingUser.password);
+        // console.log(password);
+        // console.log(existingUser.password); // the error was because, this was undefined!
+        const isPasswordValid = bcrypt.compare(password, existingUser.password);
         if(!isPasswordValid) {
             throw new Error("Incorrect password!");
         }
@@ -17,7 +18,7 @@ async function login(email, password) {
         const token = generateToken(existingUser);
         return token;
     } catch (error) {
-        console.error("Login Error: ", error.message);
+        // console.error("Login Error: ", error.message);
         throw new Error("Invalid credentials");
     }
 }

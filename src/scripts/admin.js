@@ -10,7 +10,7 @@ async function createAdminAccount() {
             const adminUser = new User({
                 email: "admin@test.com",
                 name: "admin",
-                passowrd: await bcrypt.hash("admin", 10),
+                password: await bcrypt.hash("admin", 10),
                 role: "admin"
             });
 
