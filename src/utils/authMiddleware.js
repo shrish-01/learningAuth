@@ -21,10 +21,9 @@ function authenticateToken(req, res, next) {
             res.status(403).json({
                 message: "Forbidden: Invalid token"
             });
-
-            req.user = user;
-            next();
         }
+        req.user = user;
+        next();
     });
 }
 

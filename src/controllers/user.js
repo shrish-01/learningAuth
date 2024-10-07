@@ -8,6 +8,7 @@ async function getUsers(req, res) {
         res.status(500).json({
             message: error
         });
+        return;
     }
 };
 
